@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Simulador Grupo México</title>
+</head>
+<body>
+
+<h1>Simulador Grupo México</h1>
+
+<p>México vs Polonia</p>
+<input type="number" id="m1a" min="0" value="0"> -
+<input type="number" id="m1b" min="0" value="0">
+
+<p>México vs Argentina</p>
+<input type="number" id="m2a" min="0" value="0"> -
+<input type="number" id="m2b" min="0" value="0">
+
+<p>México vs Arabia Saudita</p>
+<input type="number" id="m3a" min="0" value="0"> -
+<input type="number" id="m3b" min="0" value="0">
+
+<br><br>
+<button onclick="calcular()">Calcular</button>
+
+<h2>Resultado</h2>
+<p id="resultado"></p>
+
+<script>
+function calcular() {
+  let puntos = 0;
+
+  let partidos = [
+    [m1a.value, m1b.value],
+    [m2a.value, m2b.value],
+    [m3a.value, m3b.value]
+  ];
+
+  partidos.forEach(p => {
+    let a = parseInt(p[0]);
+    let b = parseInt(p[1]);
+
+    if (a > b) puntos += 3;
+    else if (a === b) puntos += 1;
+  });
+
+  document.getElementById("resultado").innerText =
+    "México: " + puntos + " puntos";
+}
+</script>
+
+</body>
+</html>
